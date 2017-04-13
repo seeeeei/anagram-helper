@@ -6,6 +6,8 @@ used = {}
 for i in range( 0, len( letters ) ):
 	used[ i ] = False
 
+words = []
+
 def rec( depth, word ):
 	if depth:
 		for i in range( 0, len( letters ) ):
@@ -14,7 +16,8 @@ def rec( depth, word ):
 				rec( depth - 1, word + letters[ i ] )
 				used[ i ] = False
 	else:
-		if word in dict:
+		if word in dict and word not in words:
+			words.append( word );
 			print word
 
 n = len( letters )
